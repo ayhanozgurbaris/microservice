@@ -1,6 +1,19 @@
 package com.mikroservis.accountservice.entity;
 
 public class Account {
+    public Account() {
+    }
+
+    public Account(String id) {
+        this.id = id;
+    }
+
+    public Account(String id, String username, String email, String passwd) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.passwd = passwd;
+    }
 
     private String id;
     private String username;
