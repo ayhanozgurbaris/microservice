@@ -8,8 +8,14 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 @EnableCassandraRepositories
 public class CassandraConfiguration extends AbstractCassandraConfiguration {
 
-    @Value("${spclod.cassanra.keyspace.name}")
+    @Value("${spclod.cassanra.contact.point}")
     private String keyspaceName;
+
+    @Value("${spclod.cassanra.point}")
+    private int port;
+
+    @Value("${spclod.cassanra.keyspace.name}")
+    private int keySpaceName;
 
     @Override
     protected String getKeyspaceName() {
@@ -17,4 +23,13 @@ public class CassandraConfiguration extends AbstractCassandraConfiguration {
         //bad imp return "spring-cloud";
     }
 
+    @Override
+    protected int getPort(){
+        return this.port;
+    }
+
+    @Override
+    protected String getContactPoints(){
+        return this.keyspaceName;
+    }
 }
